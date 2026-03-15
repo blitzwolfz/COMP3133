@@ -1,0 +1,149 @@
+{
+  "info": {
+    "name": "Lab 04 - Mongoose Validation",
+    "description": "COMP3133 Lab 04 - Mongoose Validation Tests",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Valid User - Leanne Graham",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json", "disabled": false }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Leanne Graham\",\n  \"username\": \"Bret\",\n  \"email\": \"Sincere@april.biz\",\n  \"address\": {\n    \"street\": \"Kulas Light\",\n    \"suite\": \"Apt. 556\",\n    \"city\": \"Gwenborough\",\n    \"zipcode\": \"92998-3874\",\n    \"geo\": { \"lat\": \"-37.3159\", \"lng\": \"81.1496\" }\n  },\n  \"phone\": \"1-770-736-8031\",\n  \"website\": \"http://hildegard.org\",\n  \"company\": {\n    \"name\": \"Romaguera-Crona\",\n    \"catchPhrase\": \"Multi-layered client-server neural-net\",\n    \"bs\": \"harness real-time e-markets\"\n  }\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": "http://localhost:8081/users"
+      },
+      "response": []
+    },
+    {
+      "name": "Valid User - Ervin Howell",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json", "disabled": false }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Ervin Howell\",\n  \"username\": \"Antonette\",\n  \"email\": \"Shanna@melissa.tv\",\n  \"address\": {\n    \"street\": \"Victor Plains\",\n    \"suite\": \"Suite 879\",\n    \"city\": \"Wisokyburgh\",\n    \"zipcode\": \"90566-7771\",\n    \"geo\": { \"lat\": \"-43.9509\", \"lng\": \"-34.4618\" }\n  },\n  \"phone\": \"1-901-692-6593\",\n  \"website\": \"https://anastasia.net\",\n  \"company\": {\n    \"name\": \"Deckow-Crist\",\n    \"catchPhrase\": \"Proactive didactic contingency\",\n    \"bs\": \"synergize scalable supply-chains\"\n  }\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": "http://localhost:8081/users"
+      },
+      "response": []
+    },
+    {
+      "name": "Error - Username Too Short",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json", "disabled": false }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Test User\",\n  \"username\": \"ab\",\n  \"email\": \"test@example.com\",\n  \"address\": {\n    \"street\": \"123 Main St\",\n    \"suite\": \"Apt. 1\",\n    \"city\": \"Toronto\",\n    \"zipcode\": \"12345-6789\",\n    \"geo\": { \"lat\": \"43.6532\", \"lng\": \"-79.3832\" }\n  },\n  \"phone\": \"1-123-456-7890\",\n  \"website\": \"http://example.com\",\n  \"company\": {\n    \"name\": \"Test Co\",\n    \"catchPhrase\": \"Testing things\",\n    \"bs\": \"test stuff\"\n  }\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": "http://localhost:8081/users"
+      },
+      "response": []
+    },
+    {
+      "name": "Error - Invalid Email",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json", "disabled": false }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Test User\",\n  \"username\": \"testuser\",\n  \"email\": \"not-an-email\",\n  \"address\": {\n    \"street\": \"123 Main St\",\n    \"suite\": \"Apt. 1\",\n    \"city\": \"Toronto\",\n    \"zipcode\": \"12345-6789\",\n    \"geo\": { \"lat\": \"43.6532\", \"lng\": \"-79.3832\" }\n  },\n  \"phone\": \"1-123-456-7890\",\n  \"website\": \"http://example.com\",\n  \"company\": {\n    \"name\": \"Test Co\",\n    \"catchPhrase\": \"Testing things\",\n    \"bs\": \"test stuff\"\n  }\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": "http://localhost:8081/users"
+      },
+      "response": []
+    },
+    {
+      "name": "Error - Duplicate Email",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json", "disabled": false }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Duplicate User\",\n  \"username\": \"duplicate\",\n  \"email\": \"Sincere@april.biz\",\n  \"address\": {\n    \"street\": \"123 Main St\",\n    \"suite\": \"Apt. 1\",\n    \"city\": \"Toronto\",\n    \"zipcode\": \"12345-6789\",\n    \"geo\": { \"lat\": \"43.6532\", \"lng\": \"-79.3832\" }\n  },\n  \"phone\": \"1-123-456-7890\",\n  \"website\": \"http://example.com\",\n  \"company\": {\n    \"name\": \"Test Co\",\n    \"catchPhrase\": \"Testing things\",\n    \"bs\": \"test stuff\"\n  }\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": "http://localhost:8081/users"
+      },
+      "response": []
+    },
+    {
+      "name": "Error - City With Numbers",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json", "disabled": false }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Test User\",\n  \"username\": \"testuser2\",\n  \"email\": \"city@test.com\",\n  \"address\": {\n    \"street\": \"123 Main St\",\n    \"suite\": \"Apt. 1\",\n    \"city\": \"Toronto123\",\n    \"zipcode\": \"12345-6789\",\n    \"geo\": { \"lat\": \"43.6532\", \"lng\": \"-79.3832\" }\n  },\n  \"phone\": \"1-123-456-7890\",\n  \"website\": \"http://example.com\",\n  \"company\": {\n    \"name\": \"Test Co\",\n    \"catchPhrase\": \"Testing things\",\n    \"bs\": \"test stuff\"\n  }\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": "http://localhost:8081/users"
+      },
+      "response": []
+    },
+    {
+      "name": "Error - Invalid Zipcode",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json", "disabled": false }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Test User\",\n  \"username\": \"testuser3\",\n  \"email\": \"zip@test.com\",\n  \"address\": {\n    \"street\": \"123 Main St\",\n    \"suite\": \"Apt. 1\",\n    \"city\": \"Toronto\",\n    \"zipcode\": \"1234\",\n    \"geo\": { \"lat\": \"43.6532\", \"lng\": \"-79.3832\" }\n  },\n  \"phone\": \"1-123-456-7890\",\n  \"website\": \"http://example.com\",\n  \"company\": {\n    \"name\": \"Test Co\",\n    \"catchPhrase\": \"Testing things\",\n    \"bs\": \"test stuff\"\n  }\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": "http://localhost:8081/users"
+      },
+      "response": []
+    },
+    {
+      "name": "Error - Invalid Phone Format",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json", "disabled": false }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Test User\",\n  \"username\": \"testuser4\",\n  \"email\": \"phone@test.com\",\n  \"address\": {\n    \"street\": \"123 Main St\",\n    \"suite\": \"Apt. 1\",\n    \"city\": \"Toronto\",\n    \"zipcode\": \"12345-6789\",\n    \"geo\": { \"lat\": \"43.6532\", \"lng\": \"-79.3832\" }\n  },\n  \"phone\": \"1234567890\",\n  \"website\": \"http://example.com\",\n  \"company\": {\n    \"name\": \"Test Co\",\n    \"catchPhrase\": \"Testing things\",\n    \"bs\": \"test stuff\"\n  }\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": "http://localhost:8081/users"
+      },
+      "response": []
+    },
+    {
+      "name": "Error - Invalid Website URL",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json", "disabled": false }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Test User\",\n  \"username\": \"testuser5\",\n  \"email\": \"web@test.com\",\n  \"address\": {\n    \"street\": \"123 Main St\",\n    \"suite\": \"Apt. 1\",\n    \"city\": \"Toronto\",\n    \"zipcode\": \"12345-6789\",\n    \"geo\": { \"lat\": \"43.6532\", \"lng\": \"-79.3832\" }\n  },\n  \"phone\": \"1-123-456-7890\",\n  \"website\": \"ftp://notvalid.com\",\n  \"company\": {\n    \"name\": \"Test Co\",\n    \"catchPhrase\": \"Testing things\",\n    \"bs\": \"test stuff\"\n  }\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": "http://localhost:8081/users"
+      },
+      "response": []
+    },
+    {
+      "name": "Error - Missing Required Fields",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json", "disabled": false }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Test User\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": "http://localhost:8081/users"
+      },
+      "response": []
+    }
+  ]
+}
